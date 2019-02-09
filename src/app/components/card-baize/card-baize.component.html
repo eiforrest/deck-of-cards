@@ -1,0 +1,15 @@
+<div class="playing-table">
+        <header>
+            <div class="button-container">
+                <button class="shuffle-button" (click)="shuffle()">Shuffle</button>
+                <button class="deal-button" (click)="dealOneCard()" [disabled]="deck.length === 0">Deal</button>
+                <button class="change-display-button" (click)="changeDisplay()">Change display</button>
+            </div>
+            <div class="card-deck">
+                <app-card *ngFor="let card of deck ; index as i" [card]="card" [index]=i [isDisplayed]="false"></app-card>
+            </div>
+        </header>
+        <div class="card-baize" [ngClass]="{'card-centered': cardService.displayChanged}">
+            <app-card [ngStyle]="getCardStyle(i)" *ngFor="let card of cards; index as i" [card]="card" [isDisplayed]="true"></app-card>
+        </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="card" [ngClass]="{'red-card' : card.color == '♥' || card.color == '♦'}" *ngIf="isDisplayed">
+  <div class="card-top-left">
+    <div>
+      <div>{{ card.color }}</div>
+      <div>{{ card.value }}</div>
+    </div>
+  </div>
+  <div class="card-center">
+    {{ card.color }}
+    {{ card.value }}
+  </div>
+  <div class="card-bottom-right">
+    <div>
+      <div>{{ card.value }}</div>
+      <div>{{ card.color }}</div>
+    </div>
+  </div>
+</div>
+<div class="card-hide" [ngStyle]="getDeckPosition()" *ngIf="!isDisplayed"></div>
